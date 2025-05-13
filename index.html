@@ -1,22 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Shoppe Livre</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="firebase-init.js"></script>
+  <title>Shopee Livre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom, #007BFF, #FFD700);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #splash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeOut 2s forwards;
+      animation-delay: 2s;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .logo {
+      font-size: 40px;
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #FFD700;
+    }
+
+    header {
+      width: 100%;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart {
+      font-size: 24px;
+      margin-right: 20px;
+      color: white;
+    }
+
+    .content {
+      flex: 1;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .product {
+      width: 120px;
+      height: 150px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+    }
+
+    footer button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+    }
+
+  </style>
 </head>
 <body>
+
+  <div id="splash">
+    <div class="logo">Shop<span>pe</span> Livre</div>
+  </div>
+
   <header>
-    <h1>Shoppe Livre</h1>
+    <div class="logo">Shop<span>pe</span> Livre</div>
+    <div class="cart">🛒</div>
   </header>
-  <main>
-    <p class="placeholder">Nenhum produto adicionado ainda.</p>
-  </main>
-  <nav>
-    <a href="pages/home.html">Início</a>
-    <a href="pages/minhas-compras.html">Minhas Compras</a>
-    <a href="pages/eu.html">Eu</a>
-  </nav>
+
+  <div class="content">
+    <!-- Produtos aparecerão aqui futuramente -->
+    <p>Nenhum produto disponível ainda.</p>
+  </div>
+
+  <footer>
+    <button onclick="alert('Página Eu em construção')">Eu</button>
+    <button onclick="alert('Cupons disponíveis em breve')">Meus Cupons</button>
+  </footer>
+
 </body>
 </html>
