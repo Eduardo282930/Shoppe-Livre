@@ -4,6 +4,32 @@
   <meta charset="UTF-8">
   <title>Shopee Livre</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Firebase App (core SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
+  <!-- Firebase Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
+
+  <!-- Firebase Auth (para login) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAOqkUT-LmAYTqmEPT3na6mV29iRJWh0vs",
+      authDomain: "shoppe-livre.firebaseapp.com",
+      projectId: "shoppe-livre",
+      storageBucket: "shoppe-livre.firebasestorage.app",
+      messagingSenderId: "234531926019",
+      appId: "1:234531926019:web:c271cab13011a6cc395e36",
+      measurementId: "G-FDT2NLHQQR"
+    };
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
   <style>
     * {
       margin: 0;
