@@ -45,7 +45,7 @@
 
     #splash h1 {
       font-size: 32px;
-      color: white;
+      color: #ff6600;
       display: flex;
       align-items: center;
     }
@@ -69,8 +69,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
-      background-color: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .logo {
@@ -103,23 +101,23 @@
       align-items: center;
       text-align: center;
       font-size: 18px;
-      color: #333;
+      color: #fff;
       padding: 30px;
     }
 
     footer {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-      padding: 10px;
-      background-color: white;
-      border-top: 1px solid #ccc;
+      padding: 15px 20px;
+      background: transparent;
     }
 
     footer div {
       text-align: center;
       cursor: pointer;
       font-size: 14px;
+      color: white;
     }
 
     footer div:hover {
@@ -130,12 +128,12 @@
 <body>
 
   <div id="splash">
-    <h1><span>SL</span>Shoppe Livre</h1>
+    <h1><span>SL</span><span style="color:#ff6600;background:none;">Shoppe Livre</span></h1>
   </div>
 
   <div id="content">
     <header>
-      <div class="logo"><span>SL</span>Shoppe Livre</div>
+      <div class="logo"><span>SL</span><span style="color:#ff6600;">Shoppe Livre</span></div>
       <div class="top-icons">
         <div title="Mensagens">💬</div>
         <div title="Carrinho">🛒</div>
@@ -147,9 +145,9 @@
     </div>
 
     <footer>
-      <div>Eu</div>
-      <div>Notificações</div>
-      <div>Meus Cupons</div>
+      <div title="Notificações">🔔<br>Notificações</div>
+      <div title="Cupons">🎟️<br>Cupons</div>
+      <div title="Eu">👤<br>Eu</div>
     </footer>
   </div>
 
