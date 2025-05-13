@@ -179,19 +179,14 @@
       document.getElementById('content').style.display = 'flex';
     }, 2000);
   </script>
-<!-- Modal flexível do botão "Eu" -->
-<div id="loginModal" style="display:none; position: fixed; top: 0; left: 0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 9999;">
-  <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; max-width: 300px;">
-    <p>Você ainda não está logado.</p>
-    <div id="modalButtons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
-      <button onclick="irParaLogin()" style="padding: 10px;">Fazer login</button>
-      <button onclick="fecharModal()" style="padding: 10px;">Mais tarde</button>
-    </div>
-  </div>
-</div>
+  <script>
+  // Splash screen
+  setTimeout(() => {
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('content').style.display = 'flex';
+  }, 2000);
 
-<script>
-  // Mostrar modal ao clicar em "Eu"
+  // Abrir modal ao clicar em "Eu"
   document.querySelector('footer div[title="Eu"]').addEventListener('click', () => {
     document.getElementById('loginModal').style.display = 'flex';
   });
@@ -204,6 +199,14 @@
   function fecharModal() {
     document.getElementById('loginModal').style.display = 'none';
   }
-</script>
+  </script>
+  <!-- Modal de Login -->
+<div id="loginModal" style="display:none; position: fixed; top: 0; left: 0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 9999;">
+  <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; max-width: 300px;">
+    <p>Você ainda não está logado.</p>
+    <button onclick="irParaLogin()" style="margin: 10px; padding: 10px 20px;">Fazer login</button>
+    <button onclick="fecharModal()" style="margin: 10px; padding: 10px 20px;">Mais tarde</button>
+  </div>
+</div>
 </body>
 </html>
