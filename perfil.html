@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil - Shopee Livre</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+    }
+    header {
+      background: linear-gradient(135deg, #ffcc00, #ff6600);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .perfil-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .perfil-info img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: white;
+    }
+    .opcoes {
+      background: white;
+      margin: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .opcao {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .opcao:hover {
+      background: #f0f0f0;
+    }
+    .opcao:last-child {
+      border-bottom: none;
+    }
+    .opcao span {
+      font-size: 18px;
+    }
+    .logout-btn {
+      margin: 20px;
+      padding: 10px;
+      background: #ff3300;
+      color: white;
+      border: none;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="perfil-info">
+      <img src="https://via.placeholder.com/50" alt="Foto">
+      <div>
+        <div id="emailUsuario">Minha Conta</div>
+        <small>ID de usuário: 12345678</small>
+      </div>
+    </div>
+    <div onclick="voltar()">Voltar</div>
+  </header>  <div class="opcoes">
+    <div class="opcao"><span>💰</span> Moedas Shopee Livre</div>
+    <div class="opcao"><span>📦</span> A caminho</div>
+    <div class="opcao"><span>✅</span> Entregue</div>
+    <div class="opcao"><span>🎟️</span> Cupons</div>
+    <div class="opcao"><span>🏪</span> Vendedor</div>
+    <div class="opcao"><span>🕵️</span> Visto recentemente</div>
+  </div><button class="logout-btn" onclick="logout()">Sair da Conta</button>
+
+  <script>
+    // Preenche com e-mail salvo
+    const usuario = localStorage.getItem('usuarioLogado');
+    if (usuario) {
+      document.getElementById('emailUsuario').textContent = usuario;
+    }
+
+    function logout() {
+      localStorage.removeItem('usuarioLogado');
+      alert('Você saiu da conta.');
+      window.location.href = 'index.html';
+    }
+
+    function voltar() {
+      window.location.href = 'index.html';
+    }
+  </script></body>
+</html>
