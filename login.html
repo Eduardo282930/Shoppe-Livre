@@ -1,125 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Login - Shopee Livre</title>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #ff6600, #ffcc00);
-      color: #222;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
     }
-    h2 {
+
+    .login-container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .login-container h1 {
       margin-bottom: 20px;
     }
-    input {
-      padding: 10px;
-      margin: 5px 0;
-      width: 250px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px;
-      width: 260px;
+
+    .login-container button {
+      padding: 10px 20px;
+      font-size: 16px;
       background-color: #ff6600;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-    button:hover {
+
+    .login-container button:hover {
       background-color: #e65c00;
-    }
-    #mensagem {
-      margin-top: 10px;
-      color: red;
     }
   </style>
 </head>
 <body>
 
-  <h2>Login - Shopee Livre</h2>
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="senha" placeholder="Senha">
-  <button onclick="fazer login()">fazer login</button>
-  
-  <button onclick="cadastrar()">Cadastrar</button>
-  <div id="mensagem"></div>
+  <div class="login-container">
+    <h1>Fazer Login</h1>
+    <p>Pressione o botão para entrar</p>
+    <button onclick="fazerLogin()">Entrar</button>
+  </div>
 
   <script>
-    // Configuração Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyAOqkUT-LmAYTqmEPT3na6mV29iRJWh0vs",
-      authDomain: "shopee-livre.firebaseapp.com",
-      projectId: "shopee-livre",
-      storageBucket: "shopee-livre.appspot.com",
-      messagingSenderId: "234531926019",
-      appId: "1:234531926019:web:c271cab13011a6cc395e36"
-    };
-    firebase.initializeApp(firebaseConfig);
-
-    function entrar() {
-      const email = document.getElementById('email').value;
-      const senha = document.getElementById('senha').value;
-
-      firebase.auth().signInWithEmailAndPassword(email, senha)
-        .then(() => {
-          document.getElementById('mensagem').style.color = 'green';
-          document.getElementById('mensagem').innerText = 'Login bem-sucedido!';
-          // Redireciona ou faz algo após login
-        })
-        .catch(error => {
-          document.getElementById('mensagem').innerText = 'Erro: ' + error.message;
-        });
-    }
-
-    function cadastrar() {
-      const email = document.getElementById('email').value;
-      const senha = document.getElementById('senha').value;
-
-      firebase.auth().createUserWithEmailAndPassword(email, senha)
-        .then(() => {
-          document.getElementById('mensagem').style.color = 'green';
-          document.getElementById('mensagem').innerText = 'Cadastro realizado!';
-        })
-        .catch(error => {
-          document.getElementById('mensagem').innerText = 'Erro: ' + error.message;
-        });
+    function fazerLogin() {
+      // Simula o login e volta para a página inicial
+      alert("Login realizado com sucesso!");
+      window.location.href = 'index.html';
     }
   </script>
-<script>
-  // Splash screen
-  setTimeout(() => {
-    document.getElementById('splash').style.display = 'none';
-    document.getElementById('content').style.display = 'flex';
-  }, 2000);
 
-  // Abrir modal ao clicar em "Eu"
-  document.querySelector('footer div[title="Eu"]').addEventListener('click', () => {
-    document.getElementById('loginModal').style.display = 'flex';
-  });
-
-  // Função ao clicar em "Fazer login"
-  function fazerLogin() {
-    fecharModal();
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // volta ao início da página
-    // Aqui você pode futuramente simular login com localStorage, se quiser
-  }
-
-  // Função para fechar o modal
-  function fecharModal() {
-    document.getElementById('loginModal').style.display = 'none';
-  }
-</script>
 </body>
 </html>
