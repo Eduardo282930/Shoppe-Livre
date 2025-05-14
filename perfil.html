@@ -1,144 +1,150 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Perfil - Shopee Livre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+    }
+
+    body {
+      background: #f5f5f5;
       color: #333;
-    }header {
-  background-color: #ff4d00;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
+    }
 
-.perfil-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+    header {
+      background: #ff6600;
+      padding: 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-.perfil-header img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: white;
-}
+    header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+    }
 
-.perfil-header .info {
-  flex: 1;
-}
+    header .info {
+      flex: 1;
+    }
 
-.perfil-header .info h2 {
-  margin: 0;
-  font-size: 20px;
-}
+    header .info h2 {
+      font-size: 18px;
+    }
 
-.perfil-header .info p {
-  margin: 5px 0 0;
-  font-size: 14px;
-}
+    header .info p {
+      font-size: 14px;
+    }
 
-.status-pedidos {
-  background-color: white;
-  margin: 10px;
-  border-radius: 10px;
-  padding: 15px 10px;
-}
+    .status-pedidos {
+      background: white;
+      margin: 10px;
+      border-radius: 8px;
+      padding: 15px;
+    }
 
-.status-pedidos h3 {
-  margin-bottom: 10px;
-  font-size: 16px;
-}
+    .status-pedidos h3 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
 
-.status-icons {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-}
+    .status-lista {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
 
-.status-icons div {
-  flex: 1;
-}
+    .status-lista div {
+      flex: 1;
+    }
 
-.status-icons i {
-  font-size: 24px;
-  color: #ff4d00;
-}
+    .status-lista div span {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
 
-.status-icons p {
-  margin-top: 5px;
-  font-size: 12px;
-}
+    .opcoes-menu {
+      background: white;
+      margin: 10px;
+      border-radius: 8px;
+      padding: 15px;
+    }
 
-.menu {
-  background-color: white;
-  margin: 10px;
-  border-radius: 10px;
-  padding: 10px 0;
-}
+    .opcoes-menu div {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
 
-.menu div {
-  padding: 12px 20px;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
-}
+    .opcoes-menu div:last-child {
+      border-bottom: none;
+    }
 
-.menu div:last-child {
-  border-bottom: none;
-}
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #ccc;
+      padding: 10px 0;
+    }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: white;
-  display: flex;
-  justify-content: space-around;
-  border-top: 1px solid #ddd;
-  padding: 10px 0;
-}
+    footer div {
+      text-align: center;
+      font-size: 14px;
+      color: #444;
+    }
 
-footer div {
-  text-align: center;
-  font-size: 12px;
-  color: #666;
-}
-
-footer .ativo {
-  color: #ff4d00;
-}
-
+    footer div:hover {
+      color: #ff6600;
+    }
   </style>
 </head>
-<body><header>
-  <div class="perfil-header">
-    <img src="https://via.placeholder.com/60" alt="Foto">
+<body>
+
+  <header>
+    <img src="https://via.placeholder.com/60" alt="Avatar">
     <div class="info">
-      <h2>Entrar / Cadastrar</h2>
-      <p>Acesse sua conta</p>
+      <h2>Olá, Usuário</h2>
+      <p>Bem-vindo ao seu perfil</p>
+    </div>
+  </header>
+
+  <div class="status-pedidos">
+    <h3>Meus Pedidos</h3>
+    <div class="status-lista">
+      <div><span>💳</span>Pagar</div>
+      <div><span>⏳</span>Preparando</div>
+      <div><span>🚚</span>A Caminho</div>
+      <div><span>📦</span>Entregue</div>
     </div>
   </div>
-</header><section class="status-pedidos">
-  <h3>Meus Pedidos</h3>
-  <div class="status-icons">
-    <div><i>💳</i><p>A pagar</p></div>
-    <div><i>⏳</i><p>Preparando</p></div>
-    <div><i>🚚</i><p>A caminho</p></div>
-    <div><i>📦</i><p>Entregue</p></div>
+
+  <div class="opcoes-menu">
+    <div>Moedas Shopee Livre</div>
+    <div>Cupons</div>
+    <div>Vendedor</div>
+    <div>Visto recentemente</div>
+    <div>Sair</div>
   </div>
-</section><section class="menu">
-  <div>Moedas Shopee Livre</div>
-  <div>Cupons</div>
-  <div>Vendedor</div>
-  <div>Vistos recentemente</div>
-</section><footer>
-  <div>🔔<br>Notificações</div>
-  <div>🎟️<br>Cupons</div>
-  <div class="ativo">👤<br>Eu</div>
-</footer></body>
+
+  <footer>
+    <div>🔔<br>Notificações</div>
+    <div>🎟️<br>Cupons</div>
+    <div onclick="window.location.href='perfil.html'">👤<br>Eu</div>
+  </footer>
+
+</body>
 </html>
