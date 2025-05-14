@@ -5,26 +5,6 @@
   <title>Shopee Livre</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Firebase SDKs compatíveis com HTML puro -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyAOqkUT-LmAYTqmEPT3na6mV29iRJWh0vs",
-      authDomain: "shoppe-livre.firebaseapp.com",
-      projectId: "shoppe-livre",
-      storageBucket: "shoppe-livre.appspot.com",
-      messagingSenderId: "234531926019",
-      appId: "1:234531926019:web:c271cab13011a6cc395e36",
-      measurementId: "G-FDT2NLHQQR"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
-
   <style>
     * {
       margin: 0;
@@ -145,6 +125,36 @@
     footer div:hover {
       color: #ff6600;
     }
+
+    /* Modal */
+    #loginModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width:100%; height:100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #loginModal .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    #loginModal button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff6600;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -163,50 +173,53 @@
     </header>
 
     <div class="main">
-      <p>Bem-vindo à Shopee Livre! <br> Nenhum produto ainda, mas em breve aparecerão aqui.</p>
+      <p>Bem-vindo à Shopee Livre!<br>Nenhum produto ainda, mas em breve aparecerão aqui.</p>
     </div>
 
     <footer>
       <div title="Notificações">🔔<br>Notificações</div>
       <div title="Cupons">🎟️<br>Cupons</div>
-      <div title="Eu">👤<br>Eu</div>
+      <div title="Eu" id="botaoEu">👤<br>Eu</div>
     </footer>
   </div>
 
+  <!-- Modal de login -->
+  <div id="loginModal">
+    <div class="modal-content">
+      <p>Você ainda não está logado.</p>
+      <button onclick="irParaLogin()">Fazer login</button>
+      <button onclick="fecharModal()">Mais tarde</button>
+    </div>
+  </div>
+
   <script>
+    // Exibir o conteúdo após o splash
     setTimeout(() => {
       document.getElementById('splash').style.display = 'none';
       document.getElementById('content').style.display = 'flex';
     }, 2000);
+
+    // Verifica se está logado
+    function estaLogado() {
+      return localStorage.getItem('usuarioLogado') === 'true';
+    }
+
+    // Clique no botão "Eu"
+    document.getElementById('botaoEu').addEventListener('click', () => {
+      if (estaLogado()) {
+        alert('Você já está logado!');
+      } else {
+        document.getElementById('loginModal').style.display = 'flex';
+      }
+    });
+
+    function irParaLogin() {
+      window.location.href = 'login.html';
+    }
+
+    function fecharModal() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
   </script>
-  <script>
-  // Splash screen
-  setTimeout(() => {
-    document.getElementById('splash').style.display = 'none';
-    document.getElementById('content').style.display = 'flex';
-  }, 2000);
-
-  // Abrir modal ao clicar em "Eu"
-  document.querySelector('footer div[title="Eu"]').addEventListener('click', () => {
-    document.getElementById('loginModal').style.display = 'flex';
-  });
-
-  // Funções dos botões
-  function irParaLogin() {
-    window.location.href = 'login.html';
-  }
-
-  function fecharModal() {
-    document.getElementById('loginModal').style.display = 'none';
-  }
-  </script>
-  <!-- Modal de Login -->
-<div id="loginModal" style="display:none; position: fixed; top: 0; left: 0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 9999;">
-  <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; max-width: 300px;">
-    <p>Você ainda não está logado.</p>
-    <button onclick="irParaLogin()" style="margin: 10px; padding: 10px 20px;">Fazer login</button>
-    <button onclick="fecharModal()" style="margin: 10px; padding: 10px 20px;">Mais tarde</button>
-  </div>
-</div>
 </body>
 </html>
