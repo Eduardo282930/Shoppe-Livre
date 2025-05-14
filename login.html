@@ -51,7 +51,8 @@
   <h2>Login - Shopee Livre</h2>
   <input type="email" id="email" placeholder="Email">
   <input type="password" id="senha" placeholder="Senha">
-  <button onclick="entrar()">Entrar</button>
+  <button onclick="fazer login()">fazer login</button>
+  
   <button onclick="cadastrar()">Cadastrar</button>
   <div id="mensagem"></div>
 
@@ -96,6 +97,29 @@
         });
     }
   </script>
+<script>
+  // Splash screen
+  setTimeout(() => {
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('content').style.display = 'flex';
+  }, 2000);
 
+  // Abrir modal ao clicar em "Eu"
+  document.querySelector('footer div[title="Eu"]').addEventListener('click', () => {
+    document.getElementById('loginModal').style.display = 'flex';
+  });
+
+  // Função ao clicar em "Fazer login"
+  function fazerLogin() {
+    fecharModal();
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // volta ao início da página
+    // Aqui você pode futuramente simular login com localStorage, se quiser
+  }
+
+  // Função para fechar o modal
+  function fecharModal() {
+    document.getElementById('loginModal').style.display = 'none';
+  }
+</script>
 </body>
 </html>
