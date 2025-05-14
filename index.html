@@ -31,17 +31,13 @@
 
     #splash {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #ffcc00, #3399ff);
+      inset: 0;
+      background: inherit;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       z-index: 9999;
-      animation: moveBG 10s ease infinite;
     }
 
     #splash h1 {
@@ -53,7 +49,6 @@
 
     #splash h1 span {
       background: #ff6600;
-      color: white;
       padding: 8px 12px;
       border-radius: 8px;
       margin-right: 10px;
@@ -91,7 +86,7 @@
     .top-icons {
       display: flex;
       gap: 20px;
-      font-size: 20px;
+      font-size: 22px;
       cursor: pointer;
       color: white;
     }
@@ -109,10 +104,10 @@
 
     footer {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
-      padding: 15px 20px;
-      background: transparent;
+      padding: 15px 10px;
+      background: rgba(0,0,0,0.1);
     }
 
     footer div {
@@ -120,6 +115,7 @@
       cursor: pointer;
       font-size: 14px;
       color: white;
+      transition: color 0.3s;
     }
 
     footer div:hover {
@@ -130,30 +126,38 @@
     #loginModal {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width:100%; height:100%;
+      inset: 0;
       background-color: rgba(0,0,0,0.5);
       justify-content: center;
       align-items: center;
       z-index: 9999;
     }
 
-    #loginModal .modal-content {
+    .modal-content {
       background: white;
       padding: 20px;
       border-radius: 10px;
       text-align: center;
+      width: 90%;
       max-width: 300px;
     }
 
-    #loginModal button {
-      margin: 10px;
+    .modal-content p {
+      margin-bottom: 20px;
+    }
+
+    .modal-content button {
+      margin: 5px;
       padding: 10px 20px;
       border: none;
       background-color: #ff6600;
       color: white;
       border-radius: 8px;
       cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: #e65c00;
     }
   </style>
 </head>
@@ -173,13 +177,13 @@
     </header>
 
     <div class="main">
-      <p>Bem-vindo à Shopee Livre!<br>Nenhum produto ainda, mas em breve aparecerão aqui.</p>
+      <p>Bem-vindo à Shopee Livre!<br>Em breve, produtos incríveis aparecerão aqui.</p>
     </div>
 
     <footer>
       <div title="Notificações">🔔<br>Notificações</div>
       <div title="Cupons">🎟️<br>Cupons</div>
-      <div title="Eu" id="botaoEu">👤<br>Eu</div>
+      <div title="Perfil" id="botaoEu">👤<br>Eu</div>
     </footer>
   </div>
 
@@ -199,15 +203,13 @@
       document.getElementById('content').style.display = 'flex';
     }, 2000);
 
-    // Verifica se está logado
     function estaLogado() {
       return localStorage.getItem('usuarioLogado') === 'true';
     }
 
-    // Clique no botão "Eu"
     document.getElementById('botaoEu').addEventListener('click', () => {
       if (estaLogado()) {
-        alert('Você já está logado!');
+        window.location.href = 'perfil.html';
       } else {
         document.getElementById('loginModal').style.display = 'flex';
       }
