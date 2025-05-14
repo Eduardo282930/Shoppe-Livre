@@ -28,17 +28,15 @@
   </style>
 </head>
 <body>
-  <h1>Bem-vindo!</h1>
-  <p>Pressione para entrar</p>
+  <h1>Bem-vindo à Shopee Livre!</h1>
+  <p>Toque para entrar</p>
   <button onclick="fazerLogin()">Entrar</button>
 
   <script>
     function fazerLogin() {
-      // Salva o login
       localStorage.setItem('usuarioLogado', 'true');
-
-      // Volta para a página principal
-      window.location.href = 'index.html';
+      localStorage.setItem('emailUsuario', 'usuario@exemplo.com'); // simula e-mail
+      window.location.href = 'perfil.html';
     }
   </script>
 </body>
